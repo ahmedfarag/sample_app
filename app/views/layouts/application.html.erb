@@ -2,6 +2,12 @@
 <html>
   <head>
     <title><%= title %></title>  
+    <%= stylesheet_link_tag "application-screen", :media => "screen" %>
+	<%= stylesheet_link_tag "application-print", :media => "print" %>
+
+	<!--[if lte IE 8]>
+	    <%= stylesheet_link_tag "application-ie", :media => "all" %>
+	<![endif]-->
     <%= csrf_meta_tag %>
   </head>
   <body>
