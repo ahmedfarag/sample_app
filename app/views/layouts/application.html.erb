@@ -2,16 +2,34 @@
 <html>
   <head>
     <title><%= title %></title>  
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
     <%= stylesheet_link_tag "application-screen", :media => "screen" %>
-	<%= stylesheet_link_tag "application-print", :media => "print" %>
-
-	<!--[if lte IE 8]>
-	    <%= stylesheet_link_tag "application-ie", :media => "all" %>
-	<![endif]-->
+	  <%= stylesheet_link_tag "application-print", :media => "print" %>
+  	<!--[if lte IE 8]>
+  	    <%= stylesheet_link_tag "application-ie"%>
+  	<![endif]-->
+    <%= stylesheet_link_tag "custom", :media => "screen"%>
     <%= csrf_meta_tag %>
   </head>
   <body>
-  	<%= yield %>
+    <div class='container'>
+      <header>
+        <%= image_tag("logo.png", :alt => "Sample App", :class => "round") %>
+        <nav class="round">
+          <ul>
+            <li><%= link_to "Home", '#' %></li>
+            <li><%= link_to "Help", '#' %></li>
+            <li><%= link_to "Sign in", '#' %></li>
+          </ul>
+        </nav>
+      </header>
+      <section class="round">
+        <%= yield %>
+      </section>
+  	
+    </div>
   </body>
 </html>
 
